@@ -2,6 +2,8 @@
 
 \<html lang="en">
 \<head>
+   <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#4f46e5">
 &#x20;   \<meta charset="UTF-8">
 &#x20;   \<meta name="viewport" content="width=device-width, initial-scale=1.0">
 &#x20;   \<title>Tic-Tac-Toe\</title>
@@ -245,6 +247,13 @@
     resetButton.addEventListener("click", newGame);
 </script>
 ```
-
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch((error) => console.error(error));
+  });
+}
+</script>
 \</body>
 \</html>
